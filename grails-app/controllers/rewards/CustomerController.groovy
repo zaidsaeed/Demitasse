@@ -1,6 +1,6 @@
 package rewards
 
 class CustomerController {
-    static scaffolding = Customer
+    static scaffold = Customer
 //    def index(){}
 }

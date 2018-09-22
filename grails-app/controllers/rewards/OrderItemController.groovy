@@ -1,5 +1,5 @@
 package rewards
 
 class OrderItemController {
-    static scaffolding = OrderItem
+    static scaffold = OrderItem
 }

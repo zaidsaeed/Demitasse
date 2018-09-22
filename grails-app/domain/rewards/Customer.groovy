@@ -8,6 +8,8 @@ class Customer {
     Integer totalPoints
     static hasMany = [awards:Award, onlineOrders:OnlineOrder]
 
-    static constraints = {}
+    static constraints = {
+
+    }
 
 }
