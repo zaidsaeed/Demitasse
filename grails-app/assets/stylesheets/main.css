@@ -162,7 +162,7 @@ img {
 
 .nav a:focus,
 .nav a:hover {
-  background-color: #999999;
+  background-color: #c5e8ec;
   color: #ffffff;
   outline: none;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
@@ -171,7 +171,7 @@ img {
 .no-borderradius .nav a:focus,
 .no-borderradius .nav a:hover {
   background-color: transparent;
-  color: #38a2ad;
+  color: #c5e8ec;
   text-decoration: underline;
 }
 
@@ -468,7 +468,7 @@ th a:visited {
 
 th a:hover,
 th a:focus {
-  color: #38a2ad;
+  color: #c5e8ec;
 }
 
 th.sortable a {
@@ -495,7 +495,7 @@ th.desc a {
 
 th:hover,
 tr:hover {
-  background: #f5f5f5;
+  background: #c5e8ec;
 }
 
 /* PAGINATION */
@@ -574,7 +574,7 @@ tr:hover {
 .buttons input:focus,
 .buttons a:hover,
 .buttons a:focus {
-  background-color: #999999;
+  background-color: #c5e8ec;
   color: #ffffff;
   outline: none;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
