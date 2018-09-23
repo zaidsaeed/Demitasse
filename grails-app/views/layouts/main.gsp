@@ -7,7 +7,7 @@
         <g:layoutTitle default="Grails"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+    <asset:link rel="icon" href="cupicon.gif" type="image/x-ico" />
 
     <asset:stylesheet src="application.css"/>
 
@@ -24,8 +24,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/#">
-		    <asset:image src="grails.svg" alt="Grails Logo"/>
+                <a class="" href="/#">
+		    <asset:image src="demi_logo.png" alt="Grails Logo"/>
                 </a>
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">

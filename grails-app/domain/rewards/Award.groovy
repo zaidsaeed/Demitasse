@@ -7,5 +7,7 @@ class Award {
     Integer points
     static belongsTo = [customer:Customer]
 
-    static constraints = {}
+    static constraints = {
+        type inList: ["Purchase", "Reward"]
+    }
 }
