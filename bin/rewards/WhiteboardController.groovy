@@ -1,8 +1,7 @@
 package rewards
 
 class WhiteboardController {
-
-    def index(){}
+    def calculationsService = new CalculationsService()
 
     def variables(){
         def myTotal = 1
@@ -24,8 +23,28 @@ class WhiteboardController {
     def strings(){
         def first = "Mike"
         def second = " Kelly"
+        def fullName = "Mike Kelly"
         def points = 4
-        render "Hey there $first. You already have $points points."
+        render "Hey there. Your name has ${fullName.length()} chars"
+    }
+
+    def conditions(){
+        def firstName = "Mike"
+        def totalPoints = 4
+        def welcomeMessage = ""
+        if(totalPoints >= 5){
+            welcomeMessage = "Welcome back $firstName. This drink is on us."
+        }else if(totalPoints == 4){
+            welcomeMessage = "Welcome back $firstName. Your next drink is free."
+        }else{
+            welcomeMessage = "Welcome back $firstName. You have $totalPoints points."
+        }
+        render welcomeMessage
+    }
+
+    def switches(){
+        def welcomeMessage = calculationsService.welcome(params)
+        render welcomeMessage
     }
 
 
