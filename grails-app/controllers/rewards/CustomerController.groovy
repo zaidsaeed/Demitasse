@@ -25,13 +25,26 @@ class CustomerController {
         [customer: new Customer()]
     }
 
-    def save(Customer customerInstance){
-        customerInstance.save()
-        redirect(action: "show", id: customerInstance.id)
+    def save(Customer customer){
+        customer.save(flush: true)
+        redirect(action: "show", id: customer.id)
     }
 
     def show(Long id){
         def customer = Customer.get(id)
         [customer: customer]
     }
+
+    def edit(Long id){
+        def customer = Customer.get(id)
+        [customer: customer]
+    }
+
+    def update(Long id){
+        def customer = Customer.get(id)
+        customer.properties = params
+        this.save(customer)
+    }
+
+    def delete(){}
 }
