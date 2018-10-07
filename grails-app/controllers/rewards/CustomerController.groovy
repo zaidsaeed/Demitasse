@@ -3,6 +3,8 @@ package rewards
 class CustomerController {
     static scaffold = Customer
 
+    def calculationsService = new CalculationsService()
+
     def lookup(){
         def customerInstance = Customer.findAllByFirstNameIlikeAndTotalPointsGreaterThanEquals("B%", 3)
 //        def customerInstance = Customer.findAllByFirstNameAndTotalPoints("Bo", 3)
@@ -32,6 +34,7 @@ class CustomerController {
 
     def show(Long id){
         def customer = Customer.get(id)
+        customer = calculationsService.getTotalPoints(customer)
         [customer: customer]
     }
 
@@ -46,5 +49,33 @@ class CustomerController {
         this.save(customer)
     }
 
-    def delete(){}
+    def delete(Long id){
+        def customer = Customer.get(id)
+        customer.delete(flush: true)
+        redirect(action: "index")
+    }
+
+    def customerLookup(Customer lookupInstance){
+        def (customerInstance, welcomeMessage)= calculationsService.processCheckin(lookupInstance)
+        render(view: "checkin", model:[customerInstance: customerInstance, welcomeMessage: welcomeMessage])
+        //Query customer by phone number
+        //If no result
+        //Create a new customer
+        //Create a welcome message
+        //add award record
+        //save customer
+        //send welcome to kiosk
+
+        //If customer is found
+        //Calculate the total points of the customer
+        //Create a welcome message
+        //add award record
+        //save customer
+        //send welcome to kiosk
+    }
+
+    def profile(){
+        def customerInstance = Customer.findByPhone(params.id)
+        [customerInstance: customerInstance]
+    }
 }

@@ -3,6 +3,8 @@ package rewards
 class CustomerController {
     static scaffold = Customer
 
+    def calculationsService = new CalculationsService()
+
     def lookup(){
         def customerInstance = Customer.findAllByFirstNameIlikeAndTotalPointsGreaterThanEquals("B%", 3)
 //        def customerInstance = Customer.findAllByFirstNameAndTotalPoints("Bo", 3)
@@ -17,5 +19,39 @@ class CustomerController {
     def checkin(){}
 
 
-    def index(){}
+    def index(){
+        [customerList: Customer.list(), customerCount: Customer.count()]
+    }
+
+    def create(){
+        [customer: new Customer()]
+    }
+
+    def save(Customer customer){
+        customer.save(flush: true)
+        redirect(action: "show", id: customer.id)
+    }
+
+    def show(Long id){
+        def customer = Customer.get(id)
+        customer = calculationsService.getTotalPoints(customer)
+        [customer: customer]
+    }
+
+    def edit(Long id){
+        def customer = Customer.get(id)
+        [customer: customer]
+    }
+
+    def update(Long id){
+        def customer = Customer.get(id)
+        customer.properties = params
+        this.save(customer)
+    }
+
+    def delete(Long id){
+        def customer = Customer.get(id)
+        customer.delete(flush: true)
+        redirect(action: "index")
+    }
 }

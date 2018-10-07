@@ -1,3 +1,5 @@
+import rewards.Customer
+
 class CalculationsService{
 
     def welcome(params){
@@ -12,5 +14,14 @@ class CalculationsService{
             default:
                 welcomeMessage = "Welcome back $firstName. You have $totalPoints points."
         }
+    }
+
+    def getTotalPoints(Customer customer){
+        def totalAwards = 0
+        customer.awards.each{
+            totalAwards = totalAwards + it.points
+        }
+        customer.totalPoints = totalAwards
+        return customer
     }
 }

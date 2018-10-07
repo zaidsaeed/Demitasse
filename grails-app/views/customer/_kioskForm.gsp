@@ -7,12 +7,11 @@
 
     <div class="row">
         <div class="col-sm-5 col-sm-offset-1">
-            <h4>Welcome back Mike.</h4>
-            <p><h4>You have 3 points.</h4></p>
+            <h4>${welcomeMessage}</h4>
         </div>
 
         <div class="col-sm-6">
-            <g:textField name="phone" class="form-control" placeholder="Enter your cell number to check in:"/>
+            <g:textField name="phone" class="form-control" placeholder="Enter your cell number to check in:" value="${customerInstance?.phone}"/>
             <div class="row">
                 <h4> </h4>
             </div>
@@ -76,14 +75,14 @@
 
             <div class="row">
                 <div class="col-sm-4">
-                    <input class="btn btn-danger btn-lg btn-block" type="button" name="pad" value="Del"/>
+                    <g:link class="btn btn-danger btn-lg btn-block" action="checkin">Del</g:link>
                 </div>
                 <div class="col-sm-4">
                     <input class="btn btn-primary btn-lg btn-block" type="button" name="pad" value="0"
                     onclick="padkey(this.value)"/>
                 </div>
                 <div class="col-sm-4">
-                    <input class="btn btn-success btn-lg btn-block" type="button" name="pad" value="Go"/>
+                    <g:submitButton class="btn btn-success btn-lg btn-block" name="pad" value="Go"/>
                 </div>
             </div>
 
